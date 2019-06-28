@@ -1,0 +1,137 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="476,1565.33333333333" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data" xmlns:udcd="clr-namespace:UiPath.DocumentProcessing.Contracts.Dom;assembly=UiPath.DocumentProcessing.Contracts" xmlns:udcd1="clr-namespace:UiPath.DocumentProcessing.Contracts.DataExtraction;assembly=UiPath.DocumentProcessing.Contracts" xmlns:udcr="clr-namespace:UiPath.DocumentProcessing.Contracts.Results;assembly=UiPath.DocumentProcessing.Contracts" xmlns:udct="clr-namespace:UiPath.DocumentProcessing.Contracts.Taxonomy;assembly=UiPath.DocumentProcessing.Contracts" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uiad="clr-namespace:UiPath.IntelligentOCR.Activities.Digitization;assembly=UiPath.IntelligentOCR.Activities" xmlns:uiad1="clr-namespace:UiPath.IntelligentOCR.Activities.DataExtraction;assembly=UiPath.IntelligentOCR.Activities" xmlns:uiat="clr-namespace:UiPath.IntelligentOCR.Activities.TaxonomyManagement;assembly=UiPath.IntelligentOCR.Activities" xmlns:umad="clr-namespace:UiPath.MachineLearningExtractor.Activities.DataExtraction;assembly=UiPath.MachineLearningExtractor.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="436,1445.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="udct:DocumentTaxonomy" Name="taxanomy" />
+      <Variable x:TypeArguments="udcd:Document" Name="dom" />
+      <Variable x:TypeArguments="x:String" Name="docText" />
+      <Variable x:TypeArguments="udcr:ExtractionResult" Name="extractionResult" />
+      <Variable x:TypeArguments="sd1:DataSet" Name="data" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uiat:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="414,22" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxanomy]" />
+    <uiad:DigitizeDocument DegreeOfParallelism="1" DisplayName="Digitize Document" DocumentObjectModel="[dom]" DocumentPath="Sample Invoice.pdf" DocumentText="[docText]" sap:VirtualizedContainerService.HintSize="414,130.666666666667" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+      <uiad:DigitizeDocument.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <ui:AbbyyOCR CustomRecognitionProfilePath="{x:Null}" FilterRegion="{x:Null}" PredefinedRecognitionProfile="{x:Null}" Text="{x:Null}" DisplayName="Abbyy OCR" ExtractWords="True" FineReaderVersion="FineReaderEngine12" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AbbyyOCR_1" Image="[Image]" Language="English" Profile="None" Scale="1" />
+        </ActivityFunc>
+      </uiad:DigitizeDocument.OCREngine>
+    </uiad:DigitizeDocument>
+    <uiad1:DataExtractionScope ClassificationResult="{x:Null}" DisplayName="Data Extraction Scope" DocumentObjectModel="[dom]" DocumentPath="Sample Invoice.pdf" DocumentText="[docText]" DocumentTypeId="Invoice.Invoice.Invoice" ExtractionResult="[extractionResult]" FormatValuesIfPossible="True" sap:VirtualizedContainerService.HintSize="414,202.666666666667" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[taxanomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI3c8b558fd27b4fd7a321cf79f06cdd8f&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Invoice.Invoice.Invoice&quot;:{&quot;FieldMappings&quot;:{&quot;Invoice.Invoice.Invoice.InvoiceNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.InvoiceNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;invoice-no\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.InvoiceDate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.InvoiceDate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;date\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Total&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Total&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;total\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Table&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Table&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;items\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Table.Description&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Table.Description&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;description\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Table.UnitPrice&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Table.UnitPrice&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;unit-price\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Table.Qty&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Table.Qty&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;quantity\&quot;&quot;,&quot;ShouldExtract&quot;:true},&quot;Invoice.Invoice.Invoice.Table.Amount&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Invoice.Invoice.Invoice.Table.Amount&quot;,&quot;ExtractorTaxonomyFieldId&quot;:&quot;\&quot;line-amount\&quot;&quot;,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI3c8b558fd27b4fd7a321cf79f06cdd8f&quot;:&quot;0&quot;}}">
+      <uiad1:DataExtractionScope.Extractors>
+        <umad:MachineLearningExtractor DisplayName="Machine Learning Extractor" Endpoint="https://invoices.uipath.com" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="MachineLearningExtractor_1" PersistenceId="UI3c8b558fd27b4fd7a321cf79f06cdd8f" RetryOnFailure="True">
+          <umad:MachineLearningExtractor.DocumentBounds>
+            <InArgument x:TypeArguments="udcr:ResultsDocumentBounds">
+              <DelegateArgumentValue x:TypeArguments="udcr:ResultsDocumentBounds">
+                <DelegateInArgument x:TypeArguments="udcr:ResultsDocumentBounds" Name="DocumentBounds" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </umad:MachineLearningExtractor.DocumentBounds>
+          <umad:MachineLearningExtractor.DocumentObjectModel>
+            <InArgument x:TypeArguments="udcd:Document">
+              <DelegateArgumentValue x:TypeArguments="udcd:Document">
+                <DelegateInArgument x:TypeArguments="udcd:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </umad:MachineLearningExtractor.DocumentObjectModel>
+          <umad:MachineLearningExtractor.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </umad:MachineLearningExtractor.DocumentPath>
+          <umad:MachineLearningExtractor.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </umad:MachineLearningExtractor.DocumentText>
+          <umad:MachineLearningExtractor.ExtractorDocumentType>
+            <InArgument x:TypeArguments="udcd1:ExtractorDocumentType">
+              <DelegateArgumentValue x:TypeArguments="udcd1:ExtractorDocumentType">
+                <DelegateInArgument x:TypeArguments="udcd1:ExtractorDocumentType" Name="ExtractorDocumentType" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </umad:MachineLearningExtractor.ExtractorDocumentType>
+          <umad:MachineLearningExtractor.ExtractorResult>
+            <OutArgument x:TypeArguments="udcd1:ExtractorResult">
+              <DelegateArgumentReference x:TypeArguments="udcd1:ExtractorResult">
+                <DelegateOutArgument x:TypeArguments="udcd1:ExtractorResult" Name="ExtractorResult" />
+              </DelegateArgumentReference>
+            </OutArgument>
+          </umad:MachineLearningExtractor.ExtractorResult>
+        </umad:MachineLearningExtractor>
+      </uiad1:DataExtractionScope.Extractors>
+    </uiad1:DataExtractionScope>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="414,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[extractionResult.Serialize]" />
+    <uiad1:ExportExtractionResults DataSet="[data]" DisplayName="Export Extraction Results" ExtractionResult="[extractionResult]" sap:VirtualizedContainerService.HintSize="414,22" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="414,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[data.Tables.Count.ToString]" />
+    <ui:WriteRange AddHeaders="True" DataTable="[data.Tables(0)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="414,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="data.xlsx" />
+    <ui:WriteRange AddHeaders="True" DataTable="[data.Tables(1)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="414,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" StartingCell="A1" WorkbookPath="data1.xlsx" />
+    <ui:WriteRange AddHeaders="True" DataTable="[data.Tables(2)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="414,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Sheet1" StartingCell="A1" WorkbookPath="data2.xlsx" />
+    <ui:WriteRange AddHeaders="True" DataTable="[data.Tables(3)]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="414,114.666666666667" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" StartingCell="A1" WorkbookPath="data3.xlsx" />
+  </Sequence>
+</Activity>
